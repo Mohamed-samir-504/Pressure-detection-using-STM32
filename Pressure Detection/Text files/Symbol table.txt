@@ -1,0 +1,119 @@
+===================pressure_detection.elf====================
+2000000c B _E_bss
+20000004 D _E_DATA
+080003e0 T _E_text
+20000004 B _S_bss
+20000000 D _S_DATA
+2000100c B _stack_top
+080000c4 T alarm_actuator_init
+20001010 B alarm_actuator_state
+2000100c B Alarm_Actuator_State_Id
+20001018 B alarm_controller_state
+20001014 B Alarm_Controller_State_Id
+08000350 W Bus_Fault_handler
+20000004 B current_pressure_value
+08000350 T Default_Handler
+080001a8 T Delay
+2000101c B detection_state
+080001c8 T getPressureVal
+0800021c T GPIO_INITIALIZATION
+08000350 W H_Fault_Handler
+080000e0 T high_pressure
+0800029c T main
+08000350 W MM_Fault_Handler
+08000350 W NMI_Handler
+08000334 T pressure_sensor_init
+20001020 B Pressure_Sensor_State_Id
+20000000 D pressure_threshold
+20001024 B PS_state
+20000008 B pval
+0800035c T Reset_Handler
+080001e0 T Set_Alarm_actuator
+0800015c T set_pressure_val
+0800026c T setup
+08000120 T ST_alarm_off
+080000fc T ST_alarm_on
+08000054 T ST_alarm_start
+08000084 T ST_alarm_stop
+080000ac T ST_alarm_waiting
+08000178 T ST_pressure_detected
+080002d0 T ST_PS_reading
+08000308 T ST_PS_waiting
+08000144 T ST_waiting
+0800001c T start_alarm
+08000038 T stop_alarm
+08000350 W Usage_Fault_handler
+08000000 T vectors
+
+
+
+===================pressure_sensor.o====================
+         U Delay
+         U getPressureVal
+00000064 T pressure_sensor_init
+00000001 C Pressure_Sensor_State_Id
+00000004 C PS_state
+00000000 B pval
+         U set_pressure_val
+00000000 T ST_PS_reading
+00000038 T ST_PS_waiting
+
+
+
+===================detection.o====================
+00000000 B current_pressure_value
+00000004 C detection_state
+         U high_pressure
+00000000 D pressure_threshold
+00000000 T set_pressure_val
+0000001c T ST_pressure_detected
+
+
+
+
+===================Alarm_controller.o====================
+00000004 C alarm_controller_state
+00000001 C Alarm_Controller_State_Id
+00000000 T high_pressure
+00000040 T ST_alarm_off
+0000001c T ST_alarm_on
+00000064 T ST_waiting
+         U start_alarm
+         U stop_alarm
+
+
+
+===================Alarm_actuator.o====================
+000000a8 T alarm_actuator_init
+00000004 C alarm_actuator_state
+00000001 C Alarm_Actuator_State_Id
+         U Delay
+         U Set_Alarm_actuator
+00000038 T ST_alarm_start
+00000068 T ST_alarm_stop
+00000090 T ST_alarm_waiting
+00000000 T start_alarm
+0000001c T stop_alarm
+
+
+
+===================main.o====================
+         U alarm_actuator_init
+         U alarm_actuator_state
+00000001 C Alarm_Actuator_State_Id
+         U alarm_controller_state
+00000001 C Alarm_Controller_State_Id
+         U detection_state
+         U GPIO_INITIALIZATION
+00000030 T main
+         U pressure_sensor_init
+00000001 C Pressure_Sensor_State_Id
+         U PS_state
+00000000 T setup
+         U ST_alarm_off
+         U ST_pressure_detected
+
+
+
+
+
